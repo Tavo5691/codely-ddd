@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import tv.codely.mooc.courses.application.create.CourseCreator;
+import tv.codely.mooc.courses.application.create.CreateCourseRequest;
 
 @RestController
 public final class CoursesPutController {
@@ -18,8 +19,8 @@ public final class CoursesPutController {
     }
 
     @PutMapping("/courses/{id}")
-    public ResponseEntity index(@PathVariable String id, @RequestBody Request request) {
-        creator.create(id, request.name(), request.duration());
+    public ResponseEntity<String> index(@PathVariable String id, @RequestBody Request request) {
+        creator.create(new CreateCourseRequest(id, request.name(), request.duration()));
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
