@@ -19,10 +19,10 @@ public final class CoursesPutController {
     }
 
     @PutMapping("/courses/{id}")
-    public ResponseEntity<String> index(@PathVariable String id, @RequestBody Request request) {
+    public ResponseEntity<String> create(@PathVariable String id, @RequestBody Request request) {
         creator.create(new CreateCourseRequest(id, request.name(), request.duration()));
 
-        return new ResponseEntity(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
 
