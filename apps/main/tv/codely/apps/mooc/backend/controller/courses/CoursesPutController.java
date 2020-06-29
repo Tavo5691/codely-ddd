@@ -1,4 +1,4 @@
-package tv.codely.apps.mooc.controller.courses;
+package tv.codely.apps.mooc.backend.controller.courses;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,6 @@ import tv.codely.mooc.courses.application.create.CreateCourseRequest;
 
 @RestController
 public final class CoursesPutController {
-
     private final CourseCreator creator;
 
     public CoursesPutController(CourseCreator creator) {
